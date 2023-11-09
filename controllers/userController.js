@@ -1,7 +1,7 @@
 const User = require('../models/users');
 
 const getAllUser = async (req, res) => {
-  const getUsers = await User.find();
+  const getUsers = await User.find().populate('todos');
   res.status(200).json({
     status: true,
     data: getUsers,
